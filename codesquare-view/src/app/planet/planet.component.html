@@ -1,0 +1,23 @@
+<div class="planet card card-small box-opener" tabindex="0" (click)="show=!show">
+    <div class="planetName">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+        <span class="item-flex">{{ planet.name }}</span>
+        <div class="flex">
+            <img class="options" src="assets/edit-24px.svg" (click)="editPlanet();$event.stopPropagation()" />
+            <img class="options" src="assets/delete_forever-24px.svg" (click)="deletePlanet();$event.stopPropagation()" />
+        </div>
+    </div>
+    <div [class.opened]="show" class="box">
+        <p class="item">Id: {{ planet.id }}</p>
+        <p class="item">Possui Aneis: {{ planet.hasRings? 'Sim':'Não' }}</p>
+        <p class="item">Data da Descoberta:
+            {{ planet.discoveryDate? (planet.discoveryDate | date: 'dd/MM/yyyy'): 'Desconhecida' }}</p>
+        <p class="item">Velocidade de Orbita: {{ planet.orbitVelocity? planet.orbitVelocity: 0 }} km/h</p>
+        <p *ngIf="planet.createdBy" class="item">Criado Por: {{ planet.createdBy }}</p>
+        <p *ngIf="planet.createdAt" class="item">Criado Em: {{planet.createdAt | date: 'dd/MM/yyyy'}}</p>
+        <p *ngIf="planet.updateBy" class="item">Atualizado Por:{{ planet.updatedBy }}</p>
+        <p *ngIf="planet.updatedAt" class="item">Atualizado Em: {{planet.updatedAt | date: 'dd/MM/yyyy'}}</p>
+    </div>
+</div>

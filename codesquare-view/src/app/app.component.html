@@ -1,0 +1,18 @@
+<div class="toolbar" role="banner">
+  <div [routerLink]="['/planets']">
+    <img width="60" src="assets/planet-svgrepo-com.svg" />
+    <span>Codesquare</span>
+  </div>
+  <div class="spacer"></div>
+  <div class="new-planet" [routerLink]="['/planet/new']">
+    <span>Criar Novo</span>
+  </div>
+</div>
+
+<div class="content" role="main">
+  <!-- <h1>Planetas</h1> -->
+</div>
+
+<router-outlet></router-outlet>
+
+<p style="margin-bottom: 10em;"></p>

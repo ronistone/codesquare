@@ -1,0 +1,37 @@
+version: '3'
+services:
+  code-square-service:
+    build:
+      context: .
+      dockerfile: service.Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./codesquare-server:/c
+      - $HOME/.m2/repository:/m/repository
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=1234
+    ports:
+      - 3000:3000
+  code-square-view:
+    build:
+      context: .
+      dockerfile: view.Dockerfile
+    depends_on:
+      - code-square-service
+      - db
+    volumes:
+      - ./codesquare-view:/c
+    ports:
+      - 4200:4200
+  db:
+    image: mysql:5.7.28
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+    volumes:
+      - codesquare-database:/var/lib/mysql
+
+volumes:
+  codesquare-database:

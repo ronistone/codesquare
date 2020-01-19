@@ -1,0 +1,53 @@
+
+.planet {
+    background-color: #8884;
+    border-radius: 10px;
+    margin: 0.8em;
+    font-size: 1.2em;
+}
+
+.planetName {
+    /* height: 200px; */
+    /* position: relative;   */
+    margin: 10pt;
+    padding: 10pt 5pt 0pt 5pt;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.box {
+    background-color: #8882;
+    max-height: 0px;
+    overflow-y: hidden;
+    transition: ease-in-out 400ms max-height;
+    border-radius: 10px;
+}
+
+.box.opened {
+    max-height: 500px;
+    transition: ease-in-out 600ms max-height;
+}
+
+.container {
+    display: flex;
+    padding: 5pt;
+}
+
+.item-flex {
+    flex: 1;
+    margin: 1px;
+}
+
+.item {
+    flex: 1;
+    margin: 15px;
+}
+
+.options {
+    margin-left: 1.2em;
+    /* margin-right: 0.3em;   */
+} 
+
