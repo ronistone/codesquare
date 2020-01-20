@@ -22,4 +22,12 @@
     - Basta um simples `docker-compose up` na raiz do projeto onde está o arquivo `docker-compose.yml`
     - Para executar o projeto basta o docker com docker-compose, pois todo o docker-compose está com os containers preparados para a execução, sendo eles 3, o backend Java, frontend Angular e o container com o banco mysql
     - A primeira execução é um pouco demorada pois irá ser criado e inicializado a instância do mysql.
+
+    - Para executar sem utilizar o docker, basta
+        - Possuir mysql instalado e configurar o `codesquare-service` com os dados do banco no seguinte arquivo `codesquare-server/src/main/resources/application.properties`, a aplicação está pronta também para utilizar as seguintes variáveis de ambiente (ou seja, basta defini-las com os valores do seu mysql para utilizar a aplicação)
+            - MYSQL_HOST
+            - MYSQL_USER
+            - MYSQL_PASSWORD
+        - Dentro `codesquare-service/` executar `mvn spring-boot:run`
+        - Dentro `codesquare-view/` executar `ng serve --host 0.0.0.0`
     
